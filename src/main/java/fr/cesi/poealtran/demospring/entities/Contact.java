@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.hibernate.annotations.NaturalId;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 // @Entity => @Id + Bean JAVA
 // Bean JAVA => class 1 constructeur par defaut + getters/setters
@@ -30,7 +33,9 @@ public class Contact {
     @Length(min=3, max=55)
     private String firstname;
     private String tel;
+    @NaturalId
+    @NotNull
     private String email;
-    // @ManyToOne
-    // private Company company
+     @ManyToOne
+     private Company company;
 }
