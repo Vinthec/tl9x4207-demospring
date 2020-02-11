@@ -45,7 +45,7 @@ public class Contact {
      @ManyToOne
      private Company company;
      
-    // @Enumerated(EnumType.STRING)
+     @Enumerated(EnumType.STRING)
      private TypeContact type;
      
     @OneToMany
@@ -53,7 +53,7 @@ public class Contact {
     private List<Adresse> adresses;
     
     @OneToMany
-    @OrderBy("valeur")
+    @OrderBy("valeur desc")
     private List<Adresse> adresse2;
     
     @OneToMany
