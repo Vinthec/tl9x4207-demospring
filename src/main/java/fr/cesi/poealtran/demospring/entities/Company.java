@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.fasterxml.jackson.databind.annotation.JsonValueInstantiator;
+
 import lombok.Data;
 
 @Data
