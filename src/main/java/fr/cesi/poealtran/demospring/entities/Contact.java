@@ -70,7 +70,7 @@ public class Contact {
     private Set<Couleur> couleursChoisies;
     
     
-    @ElementCollection
+    @ElementCollection		
     private Map<Adresse, Double> adresseRating;
     
     @ElementCollection
@@ -83,11 +83,10 @@ public class Contact {
     
     @Embeddable
     private class Qualification {
+    	@Enumerated(EnumType.STRING)
     	public Type type;
     	public Double rating;
     	
-    	@ManyToOne
-    	public Adresse adresse;
     }
     
     
