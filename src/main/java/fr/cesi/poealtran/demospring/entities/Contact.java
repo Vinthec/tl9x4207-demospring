@@ -1,6 +1,8 @@
 package fr.cesi.poealtran.demospring.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import fr.cesi.poealtran.demospring.values.Couleur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +14,8 @@ import org.hibernate.annotations.SortNatural;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 
 import javax.persistence.*;
@@ -45,8 +49,8 @@ public class Contact {
      @ManyToOne
      private Company company;
      
-     @Enumerated(EnumType.STRING)
-     private TypeContact type;
+     @Enumerated(EnumType.STRING)  //<-- fortement recommandé pour la maintenabilité // voir utiliser une entité
+     private Type type;
      
     @OneToMany
     @OrderColumn
@@ -60,6 +64,31 @@ public class Contact {
     @SortNatural
     private List<Adresse> adresse3;
     
- 
+    //private Couleur couleurPrefere;
+    
+    @ElementCollection
+    private Set<Couleur> couleursChoisies;
+    
+    
+    @ElementCollection
+    private Map<Adresse, Double> adresseRating;
+    
+    @ElementCollection
+    private Set<Qualification> adresses4;
+    
+    @ElementCollection
+    private Map<Adresse,Qualification> adresses5;
+    
+    
+    
+    @Embeddable
+    private class Qualification {
+    	public Type type;
+    	public Double rating;
+    	
+    	@ManyToOne
+    	public Adresse adresse;
+    }
+    
     
 }

@@ -1,6 +1,6 @@
 package fr.cesi.poealtran.demospring.entities;
 
-public enum TypeContact {
+public enum Type {
 	PRO,
 	TYPEX, 
 	PERSO

@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-@JsonIgnoreProperties({"localizedMessage", "message", "cause", "suppressed"})
+@JsonIgnoreProperties({"localizedMessage", "message", "cause", "suppressed", "stackTrace"})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME , include = JsonTypeInfo.As.PROPERTY)
 public class ServerException extends Exception {
 
